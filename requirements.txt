@@ -1,0 +1,6 @@
+streamlit>=1.24.0
+numpy>=1.23.0
+matplotlib>=3.5.3
+gdown>=4.7.1
+sentence-transformers>=2.2.2
+torch>=1.11.0
