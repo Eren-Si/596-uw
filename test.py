@@ -1,3 +1,14 @@
+"""
+Author: Yi Gu (Ian), Xinyuan Lin, Haofeng Si (Eren)
+Contributions:
+- Yi Gu (Ian): Task 1, Test
+- Xinyuan Lin: Task 2 (PDF integration)
+- Haofeng Si (Eren): Task 3 (Demo and web deployment)
+
+Department: University of Washington, Electrical & Computer Engineering (UW ECE)
+Date: January 29, 2024
+"""
+
 import streamlit as st
 import numpy as np
 import numpy.linalg as la
@@ -213,7 +224,7 @@ def cosine_similarity(x, y):
         cos_sim = 0.0
     else:
         cos_sim = dot_xy / (norm_x * norm_y)
-        exp_cos_sim = np.exp(2 * cos_sim)  # 加个系数 2
+        exp_cos_sim = np.exp(2 * cos_sim)  # times 2 to expand pic
     return exp_cos_sim
 
 
@@ -299,13 +310,12 @@ def get_sorted_cosine_similarity(embeddings_metadata):
             input_embedding = get_sentence_transformer_embeddings(st.session_state.text_search)
 
         for index in range(len(categories)):
-            pass
             ##########################################
             # TODO: Compute cosine similarity between input sentence and categories
             # TODO: Update category embeddings if category not found
             ##########################################
             cat = categories[index]
-            # 若没存过该类别向量，现计算
+            # if dont have this cat，calculate now
             if cat not in category_embeddings:
                 category_embeddings[cat] = get_sentence_transformer_embeddings(cat, model_name=model_name)
 
@@ -395,4 +405,4 @@ if __name__ == "__main__":
         )
 
         st.write("")
-        st.write("Demo developed by [Eren Si](https://www.linkedin.com/)")
+        st.write("Demo developed by [Eren Si](https://www.linkedin.com/in/haofeng-si)")
